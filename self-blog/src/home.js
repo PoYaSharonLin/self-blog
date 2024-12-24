@@ -67,7 +67,7 @@ const Home = () => {
             {/* <button onClick = {()=> welcome_message('Mr. Nobody')}>Hidden Message</button>
             <Click_counts / > */}
             {/* <BlogList blogs = {blogs} title = "All Blogs!" / > */}
-            <BlogList blogs = {blogs}  title = "Rob's Blogs!" handleDelete = {handleDelete} / >
+            {blogs && <BlogList blogs = {blogs}  title = "Rob's Blogs!" handleDelete = {handleDelete} / >}
             
         </div>
      );
