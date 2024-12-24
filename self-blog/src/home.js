@@ -38,12 +38,16 @@ const Home = () => {
         }         
     }
 
-    // // useEffect Dependency 
-    // const deletedBlogs = [...blogs];
-    // useEffect (()=>{ 
-    //     // console.log("changes made.")
-    //     console.log(deletedBlogs)
-    // }, [deletedBlogs]);
+    // useEffect Dependency 
+    useEffect (()=>{ 
+        fetch("http://localhost:8000/blogs")
+        .then(res => {
+            return res.json()
+        })
+        .then(data => {
+            console.log(data)
+        })
+     }, []);
 
     //反向做法
     // const handleDelete = (id) => {
@@ -62,7 +66,8 @@ const Home = () => {
             {/* <button onClick = {()=> welcome_message('Mr. Nobody')}>Hidden Message</button>
             <Click_counts / > */}
             {/* <BlogList blogs = {blogs} title = "All Blogs!" / > */}
-            <BlogList blogs = {blogs}  title = "Rob's Blogs!" handleDelete = {handleDelete}/ >
+            {/* <BlogList blogs = {blogs}  title = "Rob's Blogs!" handleDelete = {handleDelete} / > */}
+            
         </div>
      );
 }
