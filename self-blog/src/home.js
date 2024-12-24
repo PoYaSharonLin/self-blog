@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
@@ -38,8 +38,16 @@ const Home = () => {
             // console.log("blogs")
             // console.log(blogs)
             setBlogs(deletedBlogs);
+            
         }         
     }
+
+    // // useEffect Dependency 
+    // const deletedBlogs = [...blogs];
+    // useEffect (()=>{ 
+    //     // console.log("changes made.")
+    //     console.log(deletedBlogs)
+    // }, [deletedBlogs]);
 
     //反向做法
     // const handleDelete = (id) => {
@@ -47,6 +55,8 @@ const Home = () => {
     //     console.log(deletedBlogs);
     //     setBlogs(deletedBlogs);
     // }
+
+
 
     return ( 
         <div className="home">
