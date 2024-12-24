@@ -23,20 +23,20 @@ const Home = () => {
     }
     
     // 正向作法
-    const handleDelete = (id) => {
-        const index = blogs.findIndex(blog => blog.id === id);
-        const deletedBlogs = [...blogs];
-        // 如果 index 存在 ( index === -1 表示元素不存在)
-        if (index !== -1) {
-            deletedBlogs.splice(index, 1);
-            // console.log("deletedBlogs")
-            // console.log(deletedBlogs)
-            // console.log("blogs")
-            // console.log(blogs)
-            setBlogs(deletedBlogs);
+    // const handleDelete = (id) => {
+    //     const index = blogs.findIndex(blog => blog.id === id);
+    //     const deletedBlogs = [...blogs];
+    //     // 如果 index 存在 ( index === -1 表示元素不存在)
+    //     if (index !== -1) {
+    //         deletedBlogs.splice(index, 1);
+    //         // console.log("deletedBlogs")
+    //         // console.log(deletedBlogs)
+    //         // console.log("blogs")
+    //         // console.log(blogs)
+    //         setBlogs(deletedBlogs);
             
-        }         
-    }
+    //     }         
+    // }
 
     // useEffect Dependency 
     useEffect (()=>{ 
@@ -45,16 +45,17 @@ const Home = () => {
             return res.json()
         })
         .then(data => {
-            console.log(data)
+            console.log(data);
+            setBlogs(data)
         })
      }, []);
 
     //反向做法
-    // const handleDelete = (id) => {
-    //     const deletedBlogs = blogs.filter(blog => blog.id !== id);
-    //     console.log(deletedBlogs);
-    //     setBlogs(deletedBlogs);
-    // }
+    const handleDelete = (id) => {
+        const deletedBlogs = blogs.filter(blog => blog.id !== id);
+        // console.log(deletedBlogs);
+        setBlogs(deletedBlogs);
+    }
 
 
 
@@ -66,7 +67,7 @@ const Home = () => {
             {/* <button onClick = {()=> welcome_message('Mr. Nobody')}>Hidden Message</button>
             <Click_counts / > */}
             {/* <BlogList blogs = {blogs} title = "All Blogs!" / > */}
-            {/* <BlogList blogs = {blogs}  title = "Rob's Blogs!" handleDelete = {handleDelete} / > */}
+            <BlogList blogs = {blogs}  title = "Rob's Blogs!" handleDelete = {handleDelete} / >
             
         </div>
      );
